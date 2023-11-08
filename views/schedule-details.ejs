@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Details</title>
+</head>
+<body>
+  <h1>Schedule Details</h1>
+  <p>Name: <%= user.name %></p>
+  <p>Surname: <%= user.surname %></p>
+
+  <form action="/schedules" method="post">
+    <label for="visitDate">Visit Date:</label>
+    <input type="date" id="visitDate" name="visitDate" required><br>
+    
+    <label for="visitTime">Visit Time:</label>
+    <input type="time" id="visitTime" name="visitTime" required><br>
+    
+    <label for="visitPurpose">Purpose of Visit:</label>
+    <input type="text" id="visitPurpose" name="visitPurpose" required><br>
+    
+    <input type="hidden" id="userId" name="userId" value="<%= user.id %>">
+    <button type="submit" name="submitVisit">Submit Visit</button>
+  </form>
+  
+</body>
+</html>

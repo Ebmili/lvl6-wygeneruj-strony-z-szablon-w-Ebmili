@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Schedules</title>
+</head>
+<body>
+  <h1>Schedules for <%= user.name %> <%= user.surname %></h1>
+  <ul>
+    <% user.schedules.forEach(schedule => { %>
+      <li>
+        <strong>Date:</strong> <%= schedule.visitDate %><br>
+        <strong>Time:</strong> <%= schedule.visitTime %><br>
+        <strong>Purpose:</strong> <%= schedule.visitPurpose %>
+      </li>
+    <% }); %>
+  </ul>
+  <form action="/all-users" method="get">
+    <button type="submit">Back to All Users</button>
+  </form>
+</body>
+</html>

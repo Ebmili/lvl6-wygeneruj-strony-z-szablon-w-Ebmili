@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Users</title>
+</head>
+<body>
+  <h1>All Users</h1>
+  
+  <% if (users.length === 0) { %>
+    <p>There are no users, please add one.</p>
+    <form action="/new-user" method="get">
+      <button type="submit">Add New User</button>
+    </form>
+  <% } else { %>
+    <ul>
+      <% users.forEach(user => { %>
+        <li>
+          <%= user.name %> <%= user.surname %> <%= user.id %>
+          <ul>
+            <% user.schedules.forEach(schedule => { %>
+              <li>
+                <strong>Date:</strong> <%= schedule.visitDate %><br>
+                <strong>Time:</strong> <%= schedule.visitTime %><br>
+                <strong>Purpose:</strong> <%= schedule.visitPurpose %>
+              </li>
+            <% }); %>
+          </ul>
+          <form action="/delete-user/<%= user.id %>" method="post">
+            <button type="submit">Delete</button>
+          </form>
+          <form action="/edit-user/<%= user.id %>" method="get">
+            <button type="submit">Edit</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+</body>
+</html>
+
+
