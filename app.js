@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
-let users = [];
+const users = [];
 
 app.get('/', (req, res) => {
   res.render('home');
@@ -145,6 +146,6 @@ function generateUniqueId() {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-app.listen(3000, () => {
-  console.log('Serwer działa na http://localhost:3000');
+app.listen(PORT, () => {
+  console.log(`Serwer działa na http://localhost:${PORT}`);
 });
