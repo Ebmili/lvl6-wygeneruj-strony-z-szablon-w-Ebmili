@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details</title>
+</head>
+<body>
+<h1>User added succesfully </h1>
+<h2>User Details</h2>
+<p>ID: <%= user.id %></p>
+<p>Imię: <%= user.name %></p>
+<p>Nazwisko: <%= user.surname %></p>
+
+<form action="/schedule-details" method="post">
+  <input type="hidden" name="userId" value="<%= user.id %>">
+  <button type="submit">Schedule a Visit</button>
+</form>
+
+</body>
+</html>
